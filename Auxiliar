@@ -1,0 +1,57 @@
+public class Auxiliar extends Empleado {
+    private String area;
+    private float bonoPorAsistencia;
+    private int asistencias;
+
+    public Auxiliar(String nombre, double sueldo, String area, int asistencias, int antiguedad) { 
+        super(nombre, sueldo, antiguedad);
+        this.area = area;
+        this.asistencias = asistencias;
+        this.bonoPorAsistencia = calcularBonoPorAsistencia();
+    }
+
+    public float calcularBonoPorAsistencia() {
+        float bono = 0;
+        switch (asistencias) {
+            case 20:
+                bono = 500;
+                break;
+            case 25:
+                bono = 750;
+                break;
+            case 30:
+                bono = 1000;
+                break;
+            default:
+                bono = 0;
+        }
+        return bono;
+    }
+
+    // Getters y setters.
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public float getBonoPorAsistencia() {
+        return bonoPorAsistencia;
+    }
+
+    public int getAsistencias() {
+        return asistencias;
+    }
+
+    public void setAsistencias(int asistencias) {
+        this.asistencias = asistencias;
+        this.bonoPorAsistencia = calcularBonoPorAsistencia();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Área: " + area + " Bono por asistencia: " + bonoPorAsistencia;
+    }
+}
