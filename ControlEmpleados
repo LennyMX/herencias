@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class ControlEmpleados {
+    private ArrayList<Empleado> misEmpleados;
+
+    public ControlEmpleados() {
+        misEmpleados = new ArrayList<>();
+    }
+
+    public void agregarEmpleado(Empleado empleado) {
+        misEmpleados.add(empleado);
+    }
+
+    public String mostrarTodosLosEmpleados() {
+        Collections.sort(misEmpleados, Comparator.comparingDouble(Empleado::getSueldo));
+        StringBuilder cadena = new StringBuilder();
+        misEmpleados.forEach(empleado -> cadena.append(empleado).append("\n"));
+        return cadena.toString();
+    }
+
+    public String mostrarDiasDeVacaciones() {
+        StringBuilder cadena = new StringBuilder();
+        misEmpleados.forEach(empleado ->
+                cadena.append(empleado.getNombre())
+                        .append(" tiene ")
+                        .append(empleado.calcularDiasDeVacaciones())
+                        .append(" días de vacaciones.\n")
+        );
+        return cadena.toString();
+    }
+}
