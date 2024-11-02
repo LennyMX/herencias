@@ -1,0 +1,27 @@
+public class Jefe extends Empleado {
+    private float bono;
+
+    public Jefe(String nombre, double sueldo, float bono, int antiguedad) {
+        super(nombre, sueldo, antiguedad);
+        this.bono = bono;
+    }
+
+    @Override
+    public int calcularDiasDeVacaciones() {
+        return 31;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Bono: " + bono;
+    }
+
+    // Getters y setters.
+    public float getBono() {
+        return bono;
+    }
+
+    public void setBono(float bono) {
+        this.bono = bono;
+    }
+}
